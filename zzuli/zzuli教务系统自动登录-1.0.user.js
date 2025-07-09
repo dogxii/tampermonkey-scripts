@@ -56,7 +56,8 @@
     currentPath === "/jwweb" ||
     currentPath === "/jwweb/" ||
     currentPath === "/jwweb/home.aspx" ||
-    currentPath === "/jwweb/index.aspx"
+    currentPath === "/jwweb/index.aspx" ||
+    currentPath === "/jwweb/default.aspx"
   ) {
     waitForLoginForm();
     addCredentialManager();

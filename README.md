@@ -17,6 +17,7 @@ Greasy Fork: [下载链接](https://greasyfork.org/zh-CN/scripts?by=1436051)
 zzuli:
 
 - ✅ zzuli 教务系统自动登录 1.0: 实现自动输入账号密码进行登录
+- ✅ zzuli 头像可编辑上传（统一身份认证自服务平台）: 通过漏洞（?）修改 i 轻工大头像
 
 v2ex:
 

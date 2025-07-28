@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         V2EX Image Uploader
-// @version      1.1
+// @version      1.1.1
 // @description  在 V2EX 评论区快速上传图片并插入链接
 // @author       Dogxi
 // @match        https://www.v2ex.com/t/*
@@ -281,6 +281,13 @@
       if (e.target === modal) closeModal();
     });
 
+    modal.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeModal();
+      }
+    });
+
     configBtn.addEventListener("click", function () {
       configPanel.classList.toggle("hidden");
     });
@@ -559,14 +566,6 @@
       uploadBtn.style.marginLeft = "10px";
 
       leftDiv.appendChild(uploadBtn);
-
-      uploadBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        const textarea = document.getElementById("reply_content");
-        if (textarea) {
-          createUploadModal(textarea);
-        }
-      });
     }
   }
 
@@ -605,6 +604,18 @@
   // 初始化脚本
   function init() {
     addStyle();
+
+    document.body.addEventListener("click", function (e) {
+      const uploadBtn = e.target.closest(".imgur-upload-btn");
+      if (uploadBtn) {
+        e.preventDefault();
+        const textarea = document.getElementById("reply_content");
+        if (textarea) {
+          createUploadModal(textarea);
+        }
+      }
+    });
+
     setTimeout(findTextareasAndAddButtons, 100);
   }
 
